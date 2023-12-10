@@ -1,0 +1,45 @@
+token: 😂😂😂😂😂😂
+welcome: ДОбро пожаловать, начните работу с /onboarding
+states:
+  welcome:
+    text: |
+      Welcome <b>{"name"}</b>
+      Текст
+      Подключая grombot вы принимаете <a href = "{tos_link}">СОГЛАШЕНИЕ</a> И <a href = "{policy}">ПОЛИТИКУ</a> сервиса
+      Загружаюсь
+    previous: welcome
+    buttons:
+      - text: Кто вы?
+        next_state: whoareu
+  whoareu:
+    text: Выберите свою роль
+    previous: welcome
+    buttons:
+      - text: Игровая студия
+        next_state: gamemaker
+      - text: Контент мейкер
+        next_state: contentmaker
+      - text: Назад
+        next_state: welcome
+  gamemaker:
+    text: gamemaker {FSMContext}
+    previous: Кто вы?
+    buttons:
+      - text: О нас
+        next_state: about
+      - text: Назад
+        next_state: whoareu
+  contentmaker:
+    text: contentmaker {FSMContext}
+    previous: Кто вы?
+    buttons:
+      - text: О нас
+        next_state: about
+      - text: Назад
+        next_state: whoareu
+  about:
+    text: О нас
+    previous: Кто вы?
+    buttons:
+      - text: Назад
+        next_state: whoareu
